@@ -1,7 +1,9 @@
+import Layout from '../../module/core/components/Layout';
+
 export const Home = (): JSX.Element => {
   return (
-    <div>
+    <Layout>
       <h1>Home</h1>
-    </div>
+    </Layout>
   );
 };
