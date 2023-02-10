@@ -15,6 +15,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
 
 export default Layout;
 
-const Container = styled('div')({
+const Container = styled('div')(({ theme }) => ({
   minHeight: '100vh',
-});
+  background: theme.palette.background.default,
+}));
