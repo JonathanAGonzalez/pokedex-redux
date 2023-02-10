@@ -24,6 +24,8 @@ export const CardPokemon = ({
   );
 };
 
+export default CardPokemon;
+
 const Description = styled('p')(({ theme: { palette } }) => ({
   textOverflow: 'ellipsis',
   margin: 0,
