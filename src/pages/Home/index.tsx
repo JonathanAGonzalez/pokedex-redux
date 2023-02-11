@@ -1,4 +1,4 @@
-import Layout from '../../module/core/components/Layout';
+import { Layout } from '../../module/core/components';
 
 export const Home = (): JSX.Element => {
   return (
