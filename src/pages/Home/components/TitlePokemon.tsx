@@ -55,10 +55,10 @@ export const TitlePokemon = (): JSX.Element => {
 
   return (
     <Container>
-      <WrapperTitle variant="h1" fontSize={40} fontWeight={600}>
+      <WrapperTitle zIndex={9} variant="h1" fontSize={40} fontWeight={600}>
         <Title loading={loading} iconsByType={iconsByType} name={name} />
       </WrapperTitle>
-      <ID variant="h2" fontSize={19} fontWeight={400}>
+      <ID variant="h2" zIndex={3} fontSize={19} fontWeight={400}>
         {loading ? <Skeleton variant="text" width={40} /> : <>#{id}</>}
       </ID>
     </Container>
@@ -114,9 +114,9 @@ const ContainerImage = styled('figure', {
   justifyContent: 'center',
   margin: 0,
   width: 50,
+  zIndex: 3,
   img: {
     width: 30,
-    zIndex: 3,
   },
 }));
 
@@ -125,4 +125,5 @@ const WrapperTitle = styled(Typography)(({ theme }) => ({
   display: 'flex',
   gap: 10,
   textTransform: 'capitalize',
+  position: 'relative',
 }));
