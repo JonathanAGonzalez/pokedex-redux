@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { styled, Theme } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import { getDetailPokemon } from '../../redux/slices/pokemonDetail';
@@ -15,6 +14,12 @@ import { fetchPokemonCollection } from '../../redux/slices/pokemonCollection';
 import { changeBackgroundByType } from '../../utils/changeBackgroundByType';
 import { Layout } from '../../module/core/components';
 import Carrousel from '../../module/core/components/Carrousel';
+import { styled, Theme } from '@mui/material';
+
+interface NamePokemonProps {
+  isShort: boolean;
+  theme?: Theme;
+}
 
 export const Home = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -41,7 +46,7 @@ export const Home = (): JSX.Element => {
         </WrapperImage>
         <WrapperInformation>
           <BackgroundLine background={background} />
-          <NamePokemon variant="h2" isShort={name?.length <= 8}>
+          <NamePokemon zIndex={3} variant="h2" isShort={name?.length <= 8}>
             {loading ? <SkeletonNameText variant="text" /> : <>{name}</>}
           </NamePokemon>
           <Header />
@@ -69,7 +74,7 @@ const SkeletonImage = styled(Skeleton)(() => ({
 
 const NamePokemon = styled(Typography, {
   shouldForwardProp: (prop) => prop !== 'isShort',
-})(({ theme, isShort }: { theme?: Theme; isShort: boolean }) => ({
+})(({ theme, isShort }: NamePokemonProps) => ({
   fontSize: isShort ? 80 : 60,
   fontWeight: 700,
   position: 'absolute',
@@ -78,6 +83,11 @@ const NamePokemon = styled(Typography, {
   maxWidth: '100%',
   textTransform: 'uppercase',
   opacity: 0.5,
+  display: 'none',
+
+  [theme?.breakpoints.up('md') || '']: {
+    display: 'block',
+  },
 }));
 
 const WrapperInformation = styled('div')(({ theme }) => ({
@@ -87,9 +97,14 @@ const WrapperInformation = styled('div')(({ theme }) => ({
   height: '90vh',
   margin: 'auto',
   overflow: 'hidden',
-  padding: theme.spacing(7.5, 0, 7.5, 7.5),
+  padding: theme.spacing(3),
   position: 'relative',
-  width: '70vw',
+  width: '90vw',
+
+  [theme.breakpoints.up('lg')]: {
+    width: '70vw',
+    padding: theme.spacing(7.5, 0, 7.5, 7.5),
+  },
 }));
 
 const Container = styled('div')(({ theme }) => ({
@@ -102,16 +117,33 @@ const Container = styled('div')(({ theme }) => ({
 }));
 
 const WrapperImage = styled('div')(({ theme }) => ({
-  bottom: 'calc(40% - 500px / 2)',
-  height: 500,
+  bottom: 0,
   position: 'absolute',
-  right: 100,
-  width: 500,
+  right: 0,
+  width: '50%',
   zIndex: 3,
   img: {
-    height: '100%',
     width: '100%',
-    animation: 'float 2s ease-in-out infinite',
+    height: '50%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    width: '30%',
+    right: 0,
+  },
+  [theme.breakpoints.up('md')]: {
+    width: '30%',
+    right: 0,
+  },
+  [theme.breakpoints.up('lg')]: {
+    right: 100,
+    width: 400,
+    height: 500,
+    bottom: 'calc(40% - 500px / 2)',
+    img: {
+      height: '100%',
+      width: '100%',
+      animation: 'float 2s ease-in-out infinite',
+    },
   },
   '@keyframes float': {
     '0%': {
@@ -128,14 +160,14 @@ const WrapperImage = styled('div')(({ theme }) => ({
 
 const BackgroundLine = styled('div', {
   shouldForwardProp: (prop) => prop !== 'background',
-})(({ background }: { background: string }) => ({
+})(({ theme, background }: { theme?: Theme; background: string }) => ({
   position: 'absolute',
   background: background,
-  width: 800,
   height: 1300,
+  width: 500,
   top: 34,
   transform: 'rotate(29deg)',
-  right: -480,
+  right: -140,
   zIndex: 0,
   '&::before': {
     content: '""',
