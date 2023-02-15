@@ -53,7 +53,24 @@ const SkeletonTitle = styled(Skeleton)({
 const WrapperDescription = styled('div')(({ theme }) => ({
   height: '100%',
   marginTop: theme.spacing(5),
-  width: '38vw',
+  padding: theme.spacing(2),
+  width: '100%',
+  zIndex: 1,
+  backgroundColor: 'rgba(48, 47, 47, 0.5)',
+  borderRadius: 10,
+  color: theme.palette.common.white,
+  [theme.breakpoints.up('md')]: {
+    width: '70vw',
+    backgroundColor: '#fff',
+    borderRadius: 0,
+    color: theme.palette.common.black,
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '38vw',
+    backgroundColor: '#fff',
+    borderRadius: 0,
+    color: theme.palette.common.black,
+  },
 }));
 
 const Description = styled(Typography)(({ theme }) => ({}));
