@@ -17,5 +17,5 @@ export default Layout;
 
 const Container = styled('div')(({ theme }) => ({
   minHeight: '100vh',
-  background: theme.palette.background.default,
+  background: theme.palette.common.white,
 }));
