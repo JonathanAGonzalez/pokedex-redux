@@ -5,6 +5,9 @@ import { theme } from './module/mui/index';
 import { RoutingSystem } from './routes';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -13,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <RoutingSystem />
       </Provider>
     </ThemeProvider>
+    //{' '}
   </React.StrictMode>
 );
