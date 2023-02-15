@@ -11,7 +11,7 @@ const Carrousel = ({ collection }: CarrouselProps) => {
   return (
     <Slider
       slidesPerView={4}
-      spaceBetween={1}
+      spaceBetween={20}
       loop={true}
       freeMode={true}
       pagination={{ clickable: false }}
@@ -46,11 +46,10 @@ const SwiperSlider = styled(SwiperSlide)(({ theme }) => ({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  gap: 20,
   justifyContent: 'center',
+  height: 240,
   maxWidth: 200,
   overflow: 'hidden',
-  padding: 20,
   img: {
     width: '100%',
     zIndex: 2,
@@ -59,8 +58,13 @@ const SwiperSlider = styled(SwiperSlide)(({ theme }) => ({
 
 const Slider = styled(Swiper)(({ theme }) => ({
   filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
-  height: 320,
+  height: 280,
   margin: 0,
   marginTop: 20,
   width: '60%',
+  display: 'none',
+  [theme.breakpoints.up('md')]: {
+    display: 'flex',
+    height: 230,
+  },
 }));
