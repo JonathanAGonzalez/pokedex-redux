@@ -7,7 +7,7 @@ import {
 } from '../../../redux/selectors';
 import { getPokemonDescription } from '../../../redux/slices/pokemonDescription';
 import { Skeleton, styled, Typography } from '@mui/material';
-import { TypesPokemon } from './Types';
+import { TypesPokemon } from './ImageAnimated';
 
 export const DescriptionPokemon = () => {
   const dispatch = useDispatch();

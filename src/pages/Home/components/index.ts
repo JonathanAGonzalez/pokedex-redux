@@ -3,4 +3,4 @@ export * from './Header';
 export * from './InformationPokemon';
 export * from './SearchInput';
 export * from './TitlePokemon';
-export * from './Types';
+export * from './ImageAnimated';
