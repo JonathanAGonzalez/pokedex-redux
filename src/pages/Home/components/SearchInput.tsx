@@ -9,6 +9,11 @@ import {
   getPokemonDetailLoading,
 } from '../../../redux/selectors';
 
+interface InputSearchProps {
+  error: boolean;
+  theme?: Theme;
+}
+
 export const SearchInput = () => {
   const [value, setValue] = useState('');
   const [isEmpty, setIsEmpty] = useState(false);
@@ -90,7 +95,7 @@ const FieldSearch = styled(Input)(({ theme }) => ({
 
 const InputSearch = styled('div', {
   shouldForwardProp: (prop) => prop !== 'error',
-})(({ theme, error }: { theme?: Theme; error: boolean }) => ({
+})(({ theme, error }: InputSearchProps) => ({
   alignItems: 'center',
   background: theme?.palette.grey[300],
   border: error ? `1px solid ${theme?.palette.error.light}` : 'none',
@@ -100,6 +105,6 @@ const InputSearch = styled('div', {
   marginBottom: theme?.spacing(5),
   maxWidth: 300,
   overflow: 'hidden',
-  width: '100%',
+  width: '70%',
   zIndex: 1,
 }));
