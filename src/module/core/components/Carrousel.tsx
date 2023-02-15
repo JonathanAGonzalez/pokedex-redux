@@ -65,6 +65,5 @@ const Slider = styled(Swiper)(({ theme }) => ({
   display: 'none',
   [theme.breakpoints.up('md')]: {
     display: 'flex',
-    height: 230,
   },
 }));
