@@ -100,7 +100,7 @@ const WrapperInformation = styled('div')(({ theme }) => ({
   padding: theme.spacing(3),
   position: 'relative',
   width: '90vw',
-
+  maxHeight: 900,
   [theme.breakpoints.up('lg')]: {
     width: '70vw',
     padding: theme.spacing(7.5, 0, 7.5, 7.5),

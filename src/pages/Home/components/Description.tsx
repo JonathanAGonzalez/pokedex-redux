@@ -61,13 +61,12 @@ const WrapperDescription = styled('div')(({ theme }) => ({
   color: theme.palette.common.white,
   [theme.breakpoints.up('md')]: {
     width: '70vw',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     borderRadius: 0,
     color: theme.palette.common.black,
   },
   [theme.breakpoints.up('lg')]: {
     width: '38vw',
-    backgroundColor: '#fff',
     borderRadius: 0,
     color: theme.palette.common.black,
   },
